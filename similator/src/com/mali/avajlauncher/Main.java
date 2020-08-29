@@ -45,6 +45,10 @@ public class Main {
                         System.out.println(e);
                         return;
                     }
+                    if (positeInt < 0){
+                        System.out.println("Iteration has to be a positive integer");
+                        return;
+                    }
                 } else {
                     spaces = buf.split(" ");
                     if (spaces.length == 1)

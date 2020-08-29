@@ -18,12 +18,18 @@ public class Tower {
     }
 
     protected void conditionsChanged() {
-        for (int i = 0; i < observers.size(); i++) {
-            try {
-                observers.get(i).updateConditions();
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (observers.size() > 0){
+            for (int i = 0; i < observers.size(); i++) {
+                try {
+                    observers.get(i).updateConditions();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
+        else{
+            return;
+        }
+        
     }
 }
