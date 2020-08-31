@@ -17,23 +17,23 @@ public class Baloon extends Aircraft implements Flyables{
         String weather = WTower.getWeather(this.coordinates);
         switch (weather) {
             case "SUN":
-                SimulationWriter.write("Baloon#" + this.name + "(" + this.id + ")" + "Its clear sky nice weather its Josh");
+                SimulationWriter.write("Baloon# " + this.name + "(" + this.id + ") : " + "Its clear sky nice weather its Josh");
                 break;
 
             case "RAIN":
-                SimulationWriter.write("Baloon#" + this.name + "(" + this.id + ")"+ "Its Rain cats and dogs here give me coordinates");
+                SimulationWriter.write("Baloon# " + this.name + "(" + this.id + ") : "+ "Its Rain cats and dogs here give me coordinates");
                 break;
 
             case "FOG":
-                SimulationWriter.write("Baloon#" + this.name + "(" + this.id + ")" + "The Fog here is making it difficult for me");
+                SimulationWriter.write("Baloon# " + this.name + "(" + this.id + ") : " + "The Fog here is making it difficult for me");
                 break;
 
             case "SNOW":
-                SimulationWriter.write("Baloon#" + this.name + "(" + this.id + ")" + "Santa is around the corner its snowing fellas");
+                SimulationWriter.write("Baloon# " + this.name + "(" + this.id + ") : " + "Santa is around the corner its snowing fellas");
                 break;
 
             default:
-                SimulationWriter.write("Baloon#" + this.name + "(" + this.id + ")" + "weather condtions not detected mate");
+                SimulationWriter.write("Baloon #" + this.name + "(" + this.id + ") : " + "weather condtions not detected mate");
                 break;
         }
 

@@ -18,23 +18,23 @@ public class Helicopter extends Aircraft implements Flyables {
 
         switch (weather) {
             case "SUN":
-                SimulationWriter.write("Hellicopter#" + this.name + "(" + this.id + ")" + "Its clear sky nice weather its Josh");
+                SimulationWriter.write("Hellicopter#" + this.name + "(" + this.id + ") : " + "Its clear sky nice weather its Josh");
                 break;
 
             case "RAIN":
-                SimulationWriter.write("Hellicopter#" + this.name + "(" + this.id + ")"+ "Its Rain cats and dogs here give me coordinates");
+                SimulationWriter.write("Hellicopter#" + this.name + "(" + this.id + ") : "+ "Its Rain cats and dogs here give me coordinates");
                 break;
 
             case "FOG":
-                SimulationWriter.write("Hellicopter#" + this.name + "(" + this.id + ")"+ "The Fog here is making it difficult for me");
+                SimulationWriter.write("Hellicopter#" + this.name + "(" + this.id + ") : "+ "The Fog here is making it difficult for me");
                 break;
 
             case "SNOW":
-                SimulationWriter.write("Hellicopter#" + this.name + "(" + this.id + ")"+ "Santa is around the corner its snowing fellas");
+                SimulationWriter.write("Hellicopter#" + this.name + "(" + this.id + ") : "+ "Santa is around the corner its snowing fellas");
                 break;
 
             default:
-                SimulationWriter.write("Hellicopter#" + this.name + "(" + this.id + ")" + "weather condtions not detected mate");
+                SimulationWriter.write("Hellicopter#" + this.name + "(" + this.id + ") : " + "weather condtions not detected mate");
                 break;
         }
 
@@ -53,8 +53,8 @@ public class Helicopter extends Aircraft implements Flyables {
         }
         if (this.coordinates.getHeight() == 0) {
             this.WTower.unregister(this);
-            SimulationWriter.write("Tower says: Hellicopter#" + this.name + " (" + this.id + ") " + "unregistered to weather tower");
-            SimulationWriter.write("Tower says: Hellicopter#" + this.name + " (" + this.id + ") " + "Landed");
+            SimulationWriter.write("Tower says: Hellicopter#" + this.name + " (" + this.id + ") : " + "unregistered to weather tower");
+            SimulationWriter.write("Tower says: Hellicopter#" + this.name + " (" + this.id + ") : " + "Landed");
         }
     }
 

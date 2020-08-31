@@ -11,20 +11,21 @@ public class Main {
 
     public static int positeInt;
     public static WeatherTower wTower = new WeatherTower();
-    public static void main(String[] args) {
-        System.out.println("Begin avaj launcher");
+    public static void main(String[] args) { 
 
-        String textFile = args[0];
-        if(textFile != args[0]){
+        String textFile;
+        if(args.length == 0){
             System.out.println("Invalid input");
-        }
-        else{
-        Scanner reader = new Scanner(textFile);
+            return;
+        }else{
+            textFile = args[0];
+            Scanner reader = new Scanner(textFile);
         ReadFile(reader.nextLine());
         changeCondtions();
         reader.close();
+
         }
-    }
+            }
 
     public static void ReadFile(String fileName) {
         AircraftFactory aircraftFactory = new AircraftFactory();
@@ -42,7 +43,7 @@ public class Main {
                     try {
                         positeInt = Integer.parseInt(buf);
                     } catch (NumberFormatException e) {
-                        System.out.println(e);
+                        System.out.println("Only take a positive interger");
                         return;
                     }
                     if (positeInt < 0){
@@ -57,11 +58,14 @@ public class Main {
                         System.out.println("5 parameter inputs expected");
                     }
                     try {
-                        aircraftFactory.newAircraft(spaces[0], spaces[1], Integer.parseInt(spaces[2]),
+                        if (Integer.parseInt(spaces[2]) < 0 || Integer.parseInt(spaces[3]) < 0 || Integer.parseInt(spaces[4]) < 0){
+                            System.out.println("Cant accept negative coordinates");
+                            return;
+                        }else{
+                            aircraftFactory.newAircraft(spaces[0], spaces[1], Integer.parseInt(spaces[2]),
                                 Integer.parseInt(spaces[3]), Integer.parseInt(spaces[4])).registerTower(wTower);
-                        ;
+                        }
                     } catch (Exception e) {
-                        System.out.println("Some wrong with inputs and its this " + e);
                         System.out.println("This whats wrong " + buf);
                     }
                 }

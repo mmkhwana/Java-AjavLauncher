@@ -9,6 +9,8 @@ public class Tower {
     private List<Flyables> observers = new ArrayList<Flyables>();
 
     public void register(Flyables flyables) {
+        if (observers.contains(flyables))
+            return;
         observers.add(flyables);
 
     }
