@@ -39,18 +39,19 @@ public class JetPlane extends Aircraft implements Flyables {
         }
 
         if(weather.equals("SUN")){
-            this.coordinates = new Coordinates(coordinates.getHeight() + 2 , coordinates.getLatitude() + 10, coordinates.getLongitude() + 0);
+            this.coordinates = new Coordinates(coordinates.getLongitude() + 0, coordinates.getLatitude() + 10, coordinates.getHeight() + 2 );
         }else if(weather.equals("RAIN")){
-            this.coordinates = new Coordinates(coordinates.getHeight() + 0 , coordinates.getLatitude() + 5, coordinates.getLongitude() + 0);
+            this.coordinates = new Coordinates(coordinates.getLongitude() + 0, coordinates.getLatitude() + 5, coordinates.getHeight() + 0);
         }else if(weather.equals("FOG")){
-            this.coordinates = new Coordinates(coordinates.getHeight() + 0 , coordinates.getLatitude() + 1, coordinates.getLongitude() + 0);
+            this.coordinates = new Coordinates(coordinates.getLongitude() + 0, coordinates.getLatitude() + 1, coordinates.getHeight() + 0);
         }else if (weather.equals("SNOW")){
-            this.coordinates = new Coordinates(coordinates.getHeight() - 7 , coordinates.getLatitude() + 0, coordinates.getLongitude() + 0);
+            this.coordinates = new Coordinates(coordinates.getLongitude() + 0, coordinates.getLatitude() + 0, coordinates.getHeight() - 7);
         }
-        if(this.coordinates.getHeight() == 0){
+        if(this.coordinates.getHeight() < 1){
+            SimulationWriter.write("JetPlane#" + this.name + " (" + this.id + ") "+ "Landed");
             this.WTower.unregister(this);
             SimulationWriter.write("Tower says: JetPlane#" + this.name + " (" + this.id + ") "+ "unregistered to weather tower");
-            SimulationWriter.write("JetPlane#" + this.name + " (" + this.id + ") "+ "Landed");
+            
         }
 
     }

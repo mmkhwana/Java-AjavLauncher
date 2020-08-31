@@ -39,22 +39,23 @@ public class Helicopter extends Aircraft implements Flyables {
         }
 
         if (weather.equals("SUN")) {
-            this.coordinates = new Coordinates(coordinates.getHeight() + 2, coordinates.getLatitude() + 0,
-                    coordinates.getLongitude() + 10);
+            this.coordinates = new Coordinates(coordinates.getLongitude() + 10, coordinates.getLatitude() + 0,
+                    coordinates.getHeight() + 2);
         } else if (weather.equals("RAIN")) {
-            this.coordinates = new Coordinates(coordinates.getHeight() + 0, coordinates.getLatitude() + 0,
-                    coordinates.getLongitude() + 5);
+            this.coordinates = new Coordinates(coordinates.getLongitude() + 5, coordinates.getLatitude() + 0,
+                    coordinates.getHeight() + 0);
         } else if (weather.equals("FOG")) {
-            this.coordinates = new Coordinates(coordinates.getHeight() + 0, coordinates.getLatitude() + 0,
-                    coordinates.getLongitude() + 1);
+            this.coordinates = new Coordinates(coordinates.getLongitude() + 1, coordinates.getLatitude() + 0,
+                    coordinates.getHeight() + 0);
         } else if (weather.equals("SNOW")) {
-            this.coordinates = new Coordinates(coordinates.getHeight() - 12, coordinates.getLatitude() + 0,
-                    coordinates.getLongitude() + 0);
+            this.coordinates = new Coordinates(coordinates.getLongitude() + 0, coordinates.getLatitude() + 0,
+                    coordinates.getHeight() - 12);
         }
-        if (this.coordinates.getHeight() == 0) {
+        if (this.coordinates.getHeight() < 1) {
+            SimulationWriter.write("Tower says: Hellicopter#" + this.name + " (" + this.id + ") : " + "Landed");
             this.WTower.unregister(this);
             SimulationWriter.write("Tower says: Hellicopter#" + this.name + " (" + this.id + ") : " + "unregistered to weather tower");
-            SimulationWriter.write("Tower says: Hellicopter#" + this.name + " (" + this.id + ") : " + "Landed");
+            
         }
     }
 
