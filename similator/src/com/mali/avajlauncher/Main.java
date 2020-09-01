@@ -70,10 +70,11 @@ public class Main {
                     }
                 }
                 y++;
+                
             }
             bReader.close();
         } catch (Exception e) {
-            System.out.println("Some wrong with file reading");
+            System.out.println(e);
         }
     }
 
